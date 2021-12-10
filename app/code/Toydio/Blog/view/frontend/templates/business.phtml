@@ -1,0 +1,16 @@
+<?php 
+$rss = file_get_contents("https://vnexpress.net/rss/kinh-doanh.rss");
+ 
+$content = new SimpleXMLElement($rss);
+
+$items = $content->channel->item;
+?>
+
+<ul>
+    <?php foreach($items as $item) : ?>
+    <li>
+        <a href='<?= $item->link ?>' title='<?= $item->title ?>'> <?= $item->title ?> </a>
+    </li>
+    <?php endforeach ?>
+</ul>
+    

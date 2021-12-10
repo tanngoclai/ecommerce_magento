@@ -1,0 +1,17 @@
+<?php 
+$exchangeRate = file_get_contents("https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx");
+ 
+$content = new SimpleXMLElement($exchangeRate);
+?>
+
+<ul>
+    <?php foreach($content as $item) : ?>
+        <?php foreach($item->attributes() as $key=>$value) : ?>
+        <li>
+            <?= $key . '=' . $value ?>
+        </li>
+        <?php endforeach ?>
+    <?php endforeach ?>
+</ul>
+
+    
