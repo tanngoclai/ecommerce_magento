@@ -1,16 +1,40 @@
-<?php 
-$rss = file_get_contents("https://vnexpress.net/rss/kinh-doanh.rss");
- 
-$content = new SimpleXMLElement($rss);
-
-$items = $content->channel->item;
+<?php
+/** @var Toydio\Blog\Block\Business $block */
 ?>
+<?php
+$result = $block->getBusinessInformation();
+?>
+<div class="blog business" id="business">
+    <h1 id="label_try"><?php echo $block->getLabel(); ?> </h1>
+    <div id="show_news">
+        <div class="row">
+            <?php
+            foreach ($result as $temp) {
+                $temp_xml = new SimpleXMLElement($temp);
+                foreach ($temp_xml->channel->item as $item) {
+                    ?>
+                    <div class="col-sm-6">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="row" style="height: 230px;width: 100%;">
+          <div class="col-sm-7">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">Tin tức</strong>
+              <h4 class="mb-0">
+                <a class="text-dark font-weight-bold " ><?php echo $item->title ?></a>
+              </h4>
+              <p class="card-text mb-auto dek"><?php echo $item->description ?></p>
+            </div>
+          </div>
+          <div class="col-sm-5 picture card-img-right flex-auto d-none d-md-block w-100" style="width: 250px; height: 150px;"  data-holder-rendered="true">
+          <?php echo $item->description ?>
+          </div>
+        </div>
+      </div>
+    </div>
+                <?php }
+            }
+            ?>
+        </div>
+    </div>
 
-<ul>
-    <?php foreach($items as $item) : ?>
-    <li>
-        <a href='<?= $item->link ?>' title='<?= $item->title ?>'> <?= $item->title ?> </a>
-    </li>
-    <?php endforeach ?>
-</ul>
-    
+</div>

@@ -4,9 +4,9 @@
         <css src="Toydio_Blog::css/lib/bootstrap.min.css"/>
     </head>
     <referenceContainer name="content">
-        <block class="Toydio\Blog\Block\Business" name="blog_business_index" template="Toydio_Blog::business.phtml" >
+        <block class="Toydio\Blog\Block\Weather" name="blog_weather_index" template="Toydio_Blog::weather.phtml">
             <arguments>
-                <argument name="label" xsi:type="string">Business News</argument>
+                <argument name="label" xsi:type="string">Weather News</argument>
             </arguments>
         </block>
     </referenceContainer>

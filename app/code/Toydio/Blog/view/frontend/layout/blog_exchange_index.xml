@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Toydio_Blog::css/lib/bootstrap.min.css"/>
+    </head>
     <referenceContainer name="content">
-        <block class="Toydio\Blog\Block\Exchange" name="blog_exchange_index" template="Toydio_Blog::exchange.phtml" />
+        <block class="Toydio\Blog\Block\Exchange" name="blog_exchange_index" template="Toydio_Blog::exchange.phtml">
+            <arguments>
+                <argument name="label" xsi:type="string">Exchange Rate</argument>
+            </arguments>
+        </block>
     </referenceContainer>
 </page>

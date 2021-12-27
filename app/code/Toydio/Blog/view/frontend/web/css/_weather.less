@@ -1,0 +1,1490 @@
+.blog.weather {
+    header,
+    main {
+        display: block;
+        position: relative;
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #detail > div.table-wrapper.show.noselect.notap {
+        --safe-area-inset-top: env(safe-area-inset-top, 0);
+        --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+        --safe-area-inset-left: env(safe-area-inset-left, 0);
+        --safe-area-inset-right: env(safe-area-inset-right, 0);
+        --margin-top: var(--safe-area-inset-top, 0);
+        --margin-bottom: var(--safe-area-inset-bottom, 0);
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", sans-serif;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #222;
+        pointer-events: auto;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent !important;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #detail > div.table-wrapper.show.noselect.notap > div:nth-child(1) {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", sans-serif;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #222;
+        pointer-events: auto;
+        white-space: nowrap;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        background-color: #e5e5e5;
+        position: relative;
+        float: left;
+        padding-bottom: 1px;
+        margin-top: 8px;
+    }
+
+    #detail
+        > div.table-wrapper.show.noselect.notap
+        > div:nth-child(1)
+        > div.legend-days.height-days {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", sans-serif;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #222;
+        pointer-events: auto;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+        height: 28px;
+        white-space: nowrap;
+        padding-top: 2px;
+        box-sizing: border-box;
+        position: relative;
+        background-color: #f8f8f8;
+    }
+
+    #detail
+        > div.table-wrapper.show.noselect.notap
+        > div:nth-child(1)
+        > div.legend-days.height-days
+        > span.legend-left {
+        display: inline-block;
+        padding: 0 3px;
+        width: 70px;
+        max-width: 70px;
+        text-align: right;
+        color: #999;
+        padding-left: 6px;
+        font-size: 10px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    #detail
+        > div.table-wrapper.show.noselect.notap
+        > div:nth-child(1)
+        > div.legend-days.height-days
+        > span.legend-right {
+        display: inline-block;
+        padding: 0 3px;
+        overflow: hidden;
+        font-size: 11px;
+        width: 30px;
+        text-align: center;
+    }
+
+    #detail
+        > div.table-wrapper.show.noselect.notap
+        > div:nth-child(1)
+        > div.legend-hour.height-hour.d-display-table {
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+            Roboto, "Helvetica Neue", sans-serif;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        font-size: 12px;
+        color: #222;
+        pointer-events: auto;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+        height: 23px;
+        white-space: nowrap;
+        box-sizing: border-box;
+        position: relative;
+        padding-top: 5px;
+    }
+
+    #appWrapper {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        color: var(--textDefault);
+        --textBrand: #1b4de4;
+        --textDefault: #2b2b2b;
+        --textDark: #000;
+        --textMedium: #2b2b2b;
+        --textLight: #6f7585;
+        --textOverlay: #fff;
+        --textDisabled: #43454e;
+        --borderDefault: #dedede;
+        --borderLight: #f0f0f0;
+        --backgroundDefault: #fff;
+        --backgroundCard: #fff;
+        --backgroundBrand: #039;
+        --backgroundActive: #1b4de4;
+        --backgroundBrandAccent: #1b4de4;
+        --backgroundInverse: #000;
+        --backgroundOverlay: #fff;
+        --backgroundModalOverlay: rgba(0, 0, 0, 0.8);
+        --backgroundTableBody: #f1f1f1;
+        --buttonBackground: #fff;
+        --buttonText: #1b4de4;
+        --primaryButtonBackground: #1b4de4;
+        --primaryButtonText: #fff;
+        --secondaryButtonBackground: #fff;
+        --secondaryButtonText: #1b4de4;
+        background-attachment: fixed;
+        background-position: 50%;
+        background-size: cover;
+        background-image: linear-gradient(#1a357c 9%, #99479b);
+        background-color: #1a357c;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    #MainContent {
+        display: block;
+        position: relative;
+    }
+
+    #MainContent > div.DaybreakLargeScreen--gridWrapper--1A9zV {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 350px;
+        grid-column-gap: 12px;
+        max-width: 1162px;
+        z-index: 100;
+        margin: 12px auto !important;
+    }
+
+    #wx-hero-content {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    #MainContent > div.DaybreakLargeScreen--gridWrapper--1A9zV > main {
+        position: relative;
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 12px;
+        grid-auto-rows: max-content;
+        margin-left: 12px;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034 {
+        width: 100%;
+        grid-column: span 12;
+        margin-bottom: 12px;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034 > div {
+        color: #fff;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section {
+        overflow: hidden;
+        background: hsla(0, 0%, 100%, 0.1) !important;
+        border-radius: 6px;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+        margin: 0 !important;
+        padding: 20px 33px 22px 27px;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--header--3-4zi {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--header--3-4zi
+        > h1 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--header--3-4zi
+        > div {
+        font-weight: 400;
+        opacity: 0.65;
+        font-size: 1.125rem;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--primary--3xWnK {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--primary--3xWnK
+        > span {
+        text-align: left;
+        display: block;
+        position: relative;
+        line-height: 0.96em;
+        font-weight: 500;
+        font-size: 6rem;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--primary--3xWnK
+        > div {
+        text-align: left;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR {
+        flex-direction: column;
+        display: flex;
+        align-items: flex-end;
+        text-align: right;
+        margin-top: -16px;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > svg {
+        text-align: right;
+        display: block !important;
+        position: relative;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        padding: 1px 0;
+        height: 100px !important;
+        width: 100px !important;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > svg
+        > title {
+        text-align: right;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > svg
+        > use:nth-child(2) {
+        text-align: right;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        transform: translate(0, 28);
+    }
+
+    #svg-symbol-cloud-junior {
+        text-align: right;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > svg
+        > use:nth-child(3) {
+        text-align: right;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        transform: matrix(1.56, 0, 0, 1.56, -43.68, 26.52);
+        mask: url("#mostly-cloudy-night-mask");
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > div {
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--dataWrapperInner--2h2vG
+        > div.CurrentConditions--secondary--2XNLR
+        > div
+        > span {
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--precipValue--RBVJT {
+        font-size: 1.125rem;
+        line-height: 1.142857;
+    }
+
+    #WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034
+        > div
+        > section
+        > div
+        > div.CurrentConditions--precipValue--RBVJT
+        > span {
+        font-size: 1.125rem;
+        line-height: 1.142857;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a {
+        width: 100%;
+        grid-column: span 12;
+        margin-bottom: 12px;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a > section {
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+        background-color: var(--backgroundCard);
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 !important;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > header {
+        display: block;
+        position: relative;
+        padding: 16px;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > header
+        > h2 {
+        flex-grow: 1;
+        color: var(--textDark);
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div {
+        text-align: center;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul {
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        list-style-type: none;
+        margin-top: 0;
+        padding: 0 8px;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1) {
+        list-style-type: none;
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 87.1%, 0) 0,
+                #dedede 25%,
+                #dedede 70%,
+                hsla(0, 0%, 87.1%, 0) 85%,
+                hsla(0, 0%, 87.1%, 0)
+            )
+            1 100%;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        padding: 0 15px;
+        padding-left: 0;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a {
+        list-style-type: none;
+        color: var(--buttonText);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        font-weight: 400;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > h3 {
+        list-style-type: none;
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        font-weight: 400;
+        margin: 0;
+        padding-bottom: 5px;
+        text-align: center;
+        color: #6f7585;
+        font-size: 1.125rem;
+        line-height: 1.66em;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > h3
+        > span {
+        list-style-type: none;
+        cursor: pointer;
+        font-weight: 400;
+        text-align: center;
+        color: #6f7585;
+        font-size: 1.125rem;
+        line-height: 1.66em;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > div.Column--temp--2v_go {
+        cursor: pointer;
+        font-weight: 400;
+        color: #6f7585;
+        font-size: 2.25rem;
+        line-height: 0.83em;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > div.Column--temp--2v_go
+        > span {
+        cursor: pointer;
+        font-weight: 400;
+        color: #6f7585;
+        font-size: 2.25rem;
+        line-height: 0.83em;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > div.Column--icon--1fMZT {
+        list-style-type: none;
+        color: var(--buttonText);
+        font-weight: 400;
+        cursor: pointer;
+        position: relative;
+        margin: 10px 0 0;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > div.Column--precip--2H5Iw {
+        list-style-type: none;
+        font-weight: 400;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1)
+        > a
+        > div.Column--precip--2H5Iw
+        > span {
+        list-style-type: none;
+        font-weight: 400;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+    }
+
+    .Column-column-2bRa6 {
+        list-style-type: none;
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 87.1%, 0) 0,
+                #dedede 25%,
+                #dedede 70%,
+                hsla(0, 0%, 87.1%, 0) 85%,
+                hsla(0, 0%, 87.1%, 0)
+            )
+            1 100%;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        padding: 0 15px;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(2)
+        > a
+        > h3 {
+        color: var(--buttonText);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        font-weight: 400;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li:nth-child(1) {
+        list-style-type: none;
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 87.1%, 0) 0,
+                #dedede 25%,
+                #dedede 70%,
+                hsla(0, 0%, 87.1%, 0) 85%,
+                hsla(0, 0%, 87.1%, 0)
+            )
+            1 100%;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        padding: 0 15px;
+        padding-left: 0;
+    }
+
+    ul.Column--innerWrapper--3K14X,
+    .Column--past--74Gm9,
+    .Button--default--2yeqQ {
+        list-style-type: none;
+        color: var(--buttonText);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        font-weight: 400;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .Column--label--L3RrD,
+    .Column--small--3Qnmn {
+        list-style-type: none;
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        font-weight: 400;
+        margin: 0;
+        padding-bottom: 5px;
+        text-align: center;
+        color: #6f7585;
+        font-size: 1.125rem;
+        line-height: 1.66em;
+    }
+
+    .Ellipsis--ellipsis--lfjoB {
+        list-style-type: none;
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        font-weight: 400;
+        margin: 0;
+        padding-bottom: 5px;
+        text-align: center;
+        color: #6f7585;
+        font-size: 1.125rem;
+        line-height: 1.66em;
+    }
+
+    .Column--temp--2v_go {
+        list-style-type: none;
+        cursor: pointer;
+        font-weight: 400;
+        color: #6f7585;
+        font-size: 2.25rem;
+        line-height: 0.83em;
+    }
+
+    .Column--icon--1fMZT {
+        list-style-type: none;
+        color: var(--buttonText);
+        font-weight: 400;
+        cursor: pointer;
+        position: relative;
+        margin: 10px 0 0;
+    }
+
+    .Column--precip--2H5Iw {
+        list-style-type: none;
+        font-weight: 400;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > footer {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px 11px 11px;
+    }
+
+    .Column--precip--2H5Iw {
+        list-style-type: none;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+        font-weight: 700;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li.Column--column--2bRa6.Column--active--FeXwd
+        > a
+        > div.Column--precip--2H5Iw
+        > svg {
+        list-style-type: none;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+        font-weight: 700;
+        display: inline-block;
+        height: auto;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        position: relative;
+        top: 1px;
+        fill: #6adef8;
+        width: 7.5px;
+        margin-right: 8px;
+    }
+
+    .Column--precip--2H5Iw {
+        list-style-type: none;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+        font-weight: 400;
+    }
+
+    .Column--precip--2H5Iw > svg {
+        list-style-type: none;
+        font-weight: 400;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+        display: inline-block;
+        height: auto;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        position: relative;
+        top: 1px;
+        fill: #6adef8;
+        width: 7.5px;
+        margin-right: 8px;
+    }
+
+    .Accessibility--visuallyHidden--1432w {
+        list-style-type: none;
+        cursor: pointer;
+        color: #2b2b2b;
+        font-size: 1.125rem;
+        font-weight: 700;
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        white-space: nowrap;
+    }
+
+    .Column--column--2bRa6 {
+        list-style-type: none;
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        border-image: none;
+        padding: 0 15px;
+        padding-right: 0;
+        border-right-width: 0;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > div
+        > ul
+        > li {
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 87.1%, 0) 0,
+                #dedede 25%,
+                #dedede 70%,
+                hsla(0, 0%, 87.1%, 0) 85%,
+                hsla(0, 0%, 87.1%, 0)
+            )
+            1 100%;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+        padding: 0 15px;
+    }
+
+    footer.Card--cardFooter--3JEN_ {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px 11px 11px;
+    }
+
+    #WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a
+        > section
+        > footer
+        > a {
+        display: inline-block;
+        text-decoration: none;
+        line-height: 1.15;
+        font-size: 0.8125rem;
+        font-weight: 400;
+        outline: none;
+        white-space: nowrap;
+        -webkit-tap-highlight-color: var(--backgroundActive);
+        color: var(--primaryButtonText);
+        border-radius: 16px;
+        padding: 8px 14px;
+        margin: 5px;
+        cursor: pointer;
+        background-color: var(--primaryButtonBackground);
+        border: 1px solid var(--primaryButtonBackground);
+    }
+
+    #todayDetails {
+        width: 100%;
+        grid-column: span 12;
+        margin-bottom: 12px;
+    }
+
+    div > section .card,
+    .Card--card--4VS_Q {
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+        background-color: var(--backgroundCard);
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 !important;
+    }
+
+    div > section .card,
+    .Card--card--4VS_Q > header .div > section .card,
+    .Card--card--4VS_Q {
+        display: block;
+        position: relative;
+        padding: 16px;
+    }
+
+    .Card--cardHeading--3et4e {
+        flex-grow: 1;
+        color: var(--textDark);
+        margin: 0;
+        font-size: 1.25rem;
+    }
+
+    .TodayDetailsCard--hero--HySn3 {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        margin: 0 26px 25px 16px;
+        margin-left: 36px;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--hero--HySn3
+        > div.TodayDetailsCard--feelsLikeTemp--2GFqN {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    .TodayDetailsCard--feelsLikeTempValue--2aogo {
+        line-height: 1em;
+        font-size: 3.5rem;
+        font-weight: 600;
+    }
+
+    .TodayDetailsCard--feelsLikeTempLabel--1i4BV {
+        word-break: break-all;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a {
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a > div > div {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > svg {
+        width: 107;
+        height: 67;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > svg
+        > path {
+        d: path("M -13.5 26.5 a 1 1 0 0 0 80 0");
+        stroke: #e87538;
+        fill: none;
+        stroke-width: 3px;
+        stroke-linecap: round;
+        transform: rotate(180deg);
+        transform-origin: 40px 40px;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > div
+        > div {
+        display: flex;
+        height: 25px;
+        font-size: 0.875rem;
+        align-items: center;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > div
+        > div
+        > svg {
+        font-size: 0.875rem;
+        fill: #febc11;
+        display: inline-block;
+        height: auto;
+        width: 24px;
+    }
+
+    #SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a
+        > div
+        > div
+        > div
+        > div
+        > p {
+        white-space: nowrap;
+        font-size: 0.9375rem;
+        letter-spacing: -0.3px;
+        line-height: 1.2em;
+        padding-left: 5px;
+    }
+
+    #todayDetails > section > div.TodayDetailsCard--detailsContainer--1tqay {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div {
+        display: flex !important;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: #2b2b2b !important;
+        box-sizing: border-box;
+        padding: 10px 16px;
+        flex-basis: 49%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        border-top: 1px solid #dedede !important;
+        margin-right: 6px;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > svg {
+        flex-shrink: 0;
+        display: inline-block;
+        height: auto;
+        width: 24px;
+        fill: #2b2b2b;
+        color: #2b2b2b;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > svg
+        > title {
+        fill: #2b2b2b;
+        color: #2b2b2b;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div:nth-child(1)
+        > svg
+        > path {
+        fill: #2b2b2b;
+        color: #2b2b2b;
+        d: path(
+            "M 10.333 15.48 v 0.321 c 0.971 0.357 1.667 1.322 1.667 2.456 c 0 1.438 -1.12 2.604 -2.5 2.604 S 7 19.695 7 18.257 c 0 -1.134 0.696 -2.099 1.667 -2.456 v -0.322 a 2.084 2.084 0 0 1 -1.25 -1.91 V 5.583 a 2.083 2.083 0 1 1 4.166 0 v 7.986 c 0 0.855 -0.514 1.589 -1.25 1.91 Z M 15.8 8.1 a 2.8 2.8 0 1 1 0 -5.6 a 2.8 2.8 0 0 1 0 5.6 Z m 0 -1.85 a 1 1 0 1 0 0 -2 a 1 1 0 0 0 0 2 Z"
+        );
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > div.WeatherDetailsListItem--label--3JSSI {
+        color: #2b2b2b !important;
+        flex-grow: 1;
+        font-size: 1rem;
+        font-weight: 400;
+        min-width: 40%;
+        padding: 0 10px;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > div.WeatherDetailsListItem--wxData--23DP5 {
+        color: #2b2b2b !important;
+        text-align: right;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span {
+        color: #2b2b2b !important;
+        text-align: right;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span
+        > svg {
+        text-align: right;
+        display: inline-block;
+        fill: #2b2b2b;
+        color: #2b2b2b;
+        width: 17px;
+        height: auto;
+        margin-right: 5px;
+        transform: rotate(90deg);
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span
+        > svg
+        > title {
+        text-align: right;
+        fill: #2b2b2b;
+        color: #2b2b2b;
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div:nth-child(5)
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span
+        > svg
+        > path:nth-child(2) {
+        color: #2b2b2b !important;
+        text-align: right;
+        d: path("M 11 2.5 a 1 1 0 0 1 2 0 v 19 a 1 1 0 0 1 -2 0 v -19 Z");
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div:nth-child(5)
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span
+        > svg
+        > path:nth-child(3) {
+        color: #2b2b2b !important;
+        text-align: right;
+        d: path(
+            "M 12 3.914 l -7.293 7.293 a 1 1 0 1 1 -1.414 -1.414 l 8 -8 a 1 1 0 0 1 1.414 0 l 8 8 a 1 1 0 1 1 -1.414 1.414 L 12 3.914 Z"
+        );
+    }
+
+    #todayDetails
+        > section
+        > div.TodayDetailsCard--detailsContainer--1tqay
+        > div:nth-child(5)
+        > div.WeatherDetailsListItem--wxData--23DP5
+        > span
+        > svg {
+        color: #2b2b2b !important;
+        text-align: right;
+        display: inline-block;
+        width: 15px;
+        height: auto;
+        margin-right: 7px;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626 {
+        width: 100%;
+        grid-column: span 12;
+        margin-bottom: 12px;
+    }
+
+    .card Card--card--4VS_Q {
+        overflow: hidden;
+        border-radius: 6px;
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+        background-color: var(--backgroundCard);
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0 !important;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div {
+        text-align: center;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        list-style-type: none;
+        margin-top: 0;
+        padding: 0 8px;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li.Column--column--2bRa6.Column--active--FeXwd
+        > a
+        > div.Column--temp--2v_go {
+        list-style-type: none;
+        cursor: pointer;
+        color: #1b4de4;
+        font-size: 2.25rem;
+        line-height: 0.83em;
+        font-weight: 700;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li.Column--column--2bRa6.Column--active--FeXwd
+        > a
+        > div.Column--tempLo--19O32 {
+        list-style-type: none;
+        cursor: pointer;
+        color: #1b4de4;
+        font-weight: 400;
+        font-size: 1.125rem;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li.Column--column--2bRa6.Column--active--FeXwd
+        > a
+        > div.Column--icon--1fMZT.Column--small--3Qnmn {
+        color: var(--buttonText);
+        font-weight: 400;
+        cursor: pointer;
+        position: relative;
+        margin: 10px 0 0;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li.Column--column--2bRa6.Column--active--FeXwd
+        > a
+        > div.Column--icon--1fMZT.Column--small--3Qnmn
+        > svg {
+        color: var(--buttonText);
+        font-weight: 400;
+        cursor: pointer;
+        display: inline-block;
+        height: auto;
+        --color-moon: #e3e3e3;
+        --color-star: #e3e3e3;
+        --color-cloud: #d3d3d3;
+        --color-na: #d3d3d3;
+        --color-fog: #d3d3d3;
+        --color-hail: #d3d3d3;
+        --color-tornado: #d3d3d3;
+        --color-wind: #d3d3d3;
+        --color-storm: #d3d3d3;
+        --color-lightning: #ebdb00;
+        --color-sun: #ebdb00;
+        --color-drop: #6adef8;
+        --color-snowflake: #d3d3d3;
+        --color-thunderstorm-mask: #2b2b2b;
+        position: relative;
+        font-size: 0.625rem;
+        box-sizing: border-box;
+        width: 55px !important;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li:nth-child(2)
+        > a
+        > h3 {
+        cursor: pointer;
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        font-weight: 400;
+        color: #2b2b2b;
+        margin: 0;
+        padding-bottom: 5px;
+        text-align: center;
+        font-size: 1.125rem;
+        line-height: 1.66em;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li
+        > a
+        > div.Column--temp--2v_go {
+        cursor: pointer;
+        color: #1b4de4;
+        font-weight: 400;
+        font-size: 2.25rem;
+        line-height: 0.83em;
+    }
+
+    #WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626
+        > section
+        > div
+        > ul
+        > li {
+        list-style-type: none;
+        display: flex;
+        flex-basis: 20%;
+        justify-content: center;
+        border-image: linear-gradient(
+                180deg,
+                hsla(0, 0%, 87.1%, 0) 0,
+                #dedede 25%,
+                #dedede 70%,
+                hsla(0, 0%, 87.1%, 0) 85%,
+                hsla(0, 0%, 87.1%, 0)
+            )
+            1 100%;
+        padding: 0 5px;
+        border-style: solid;
+        border-width: 0 1px 0 0;
+    }
+    #MainContent > div.DaybreakLargeScreen--gridWrapper--1A9zV {
+        /* display: grid; */
+        grid-template-columns: minmax(0, 1fr) 350px;
+        grid-column-gap: 12px;
+        max-width: 1162px;
+        z-index: 100;
+        margin: 12px auto !important;
+        padding-left: 10px;
+        padding-right: 20px;
+        display: block;
+    }
+}
