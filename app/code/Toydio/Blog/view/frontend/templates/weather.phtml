@@ -1,0 +1,478 @@
+<?php
+/** @var Learning\Weather\Block\WeatherBlock $block */
+?>
+<?php
+$result = $block->getWeatherInformation();
+$location = $result->name;
+$main = $result->weather[0]['main'];
+$description = $result->weather[0]['description'];
+$temp = $result->main['temp'] - 273;
+$temp_min = $result->main['temp_min'] - 273;
+$temp_max = $result->main['temp_max'] - 273;
+$umid = $result->main['humidity'];
+$pressure = $result->main['pressure'];
+$city_id = $result->id;
+$forcast_obj = $block->getForcastInformation($city_id);
+$forcast_list = $forcast_obj->list;
+?>
+<div class="container blog weather">
+    <div
+        class="appWrapper DaybreakLargeScreen LargeScreen lightTheme DaybreakLargeScreen--appWrapper--3sKDm gradients--cloudyFoggyNight--3Z9IR gradients--cloudyFoggyNight-top--3ow2Y"
+        id="appWrapper">
+        <h1 id="label_try"><?php echo $block->getLabel(); ?> </h1>
+        <main id="MainContent">
+            <div class="DaybreakLargeScreen--gridWrapper--1A9zV">
+                <div id="wx-hero-content" class="js-branded-background-ads"></div>
+                <main class="region-main regionMain DaybreakLargeScreen--regionMain--KB2mt" aria-label="Main Content">
+                    <div id="WxuCurrentConditions-main-b3094163-ef75-4558-8d9a-e35e6b9b1034" class=" removeIfEmpty">
+                        <div class="CurrentConditions--CurrentConditions--2_Nmm"
+                            data-testid="CurrentConditionsContainer">
+                            <section
+                                class="card Card--cardPadded--2jAM0 Card--card--4VS_Q CurrentConditions--card--1sxFO gradients--cloudyFoggyNight-contrast--MaJB4 CurrentConditions--gradient--2g3vw"
+                                aria-label="Điều kiện hiện tại cho Thời tiết Hanoi">
+                                <div>
+                                    <div class="CurrentConditions--header--3-4zi">
+                                        <h1 class="CurrentConditions--location--1Ayv3">
+                                            Location: <?php echo $location ?></h1>
+                                        <div class="CurrentConditions--timestamp--1SWy5">Update
+                                            time: <?php echo date("H:i:s", $result->dt); ?></div>
+                                    </div>
+                                    <div class="CurrentConditions--dataWrapperInner--2h2vG">
+                                        <div class="CurrentConditions--primary--3xWnK"><span
+                                                data-testid="TemperatureValue"
+                                                class="CurrentConditions--tempValue--3KcTQ"><?php echo $temp_max ?></span>
+                                            <div data-testid="wxPhrase" class="CurrentConditions--phraseValue--2xXSr">
+                                                <?php echo $description ?>
+                                            </div>
+                                        </div>
+                                        <div class="CurrentConditions--secondary--2XNLR">
+                                            <div style="height:50px; width:50px; margin-left:auto;margin-right:auto;
+                                                background: url('http://openweathermap.org/img/w/<?php echo $result->weather[0]["icon"] ?>.png') no-repeat;">
+
+                                            </div>
+                                            <div class="CurrentConditions--tempHiLoValue--A4RQE"><span
+                                                    data-testid="TemperatureValue"><?php echo $temp_min . " &#8451;" ?></span>/<span
+                                                    data-testid="TemperatureValue"><?php echo $temp_max . " &#8451;" ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-testid="precipPhrase" class="CurrentConditions--precipValue--RBVJT">
+                                        <span>Chance of rain 2% to 20:00</span>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div id="WxuTodayWeatherCard-main-486ce56c-74e0-4152-bd76-7aea8e98520a" class=" removeIfEmpty">
+                        <section class="card Card--card--4VS_Q" data-testid="TodayWeatherModule"
+                                title="Today's weather forecast for <?php echo $location ?>" ctatext="Các giờ tới"
+                                ctaurl="/vi-VN/weather/hourbyhour/l/65bbbcbef8448c1f971408c74ed922af1bed94ddd8cc7a48d2bae40e75cef726"
+                                aria-label="Today's weather forecast for  <?php echo $location ?>">
+                            <header data-testid="HeaderTitle" class="Card--cardHeader--3A3B1">
+                                <h2 class="Card--cardHeading--3et4e">Today's weather forecast
+                                    for <?php echo $location ?></h2>
+                            </header>
+                            <div class="TodayWeatherCard--TableWrapper--13jpa">
+                                <ul class="WeatherTable--columns--3q5Nx WeatherTable--wide--YogM9"
+                                    data-testid="WeatherTable">
+                                    <li class="
+                            Column--column--2bRa6
+                        "><a class="Column--innerWrapper--3K14X Column--past--74Gm9 Button--default--2yeqQ"
+                            href="#"
+                            target="_self">
+                                            <h3 class="Column--label--L3RrD Column--small--3Qnmn"><span
+                                                    class="Ellipsis--ellipsis--lfjoB"
+                                                    style="-webkit-line-clamp:2">Morning</span></h3>
+                                            <div data-testid="SegmentHighTemp" class="Column--temp--2v_go"><span
+                                                    data-testid="TemperatureValue"><?php ($forcast_list[0]->main->temp - 273) . " &#8451;" ?></span>
+                                            </div>
+                                            <div class="Column--icon--1fMZT ">
+                                                <svg set="weather" skycode="28"
+                                                    theme="full" data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 0 200 200">
+
+                                                </svg>
+                                                <div
+                                                    style="background-image: url('http://openweathermap.org/img/w/<?php echo $forcast_list[0]->weather[0]->icon ?>.png') no-repeat;"></div>
+                                            </div>
+                                            <div data-testid="SegmentPrecipPercentage" class="Column--precip--2H5Iw">
+                                                <span class="Column--precip--2H5Iw"><?php echo ($forcast_list[0]->main->temp - 273) ?></span>
+                                            </div>
+                                        </a></li>
+                                    <li class="
+                            Column--column--2bRa6
+                        "><a class="Column--innerWrapper--3K14X Column--past--74Gm9 Button--default--2yeqQ"
+                            href="#"
+                            target="_self">
+                                            <h3 class="Column--label--L3RrD Column--small--3Qnmn"><span
+                                                    class="Ellipsis--ellipsis--lfjoB"
+                                                    style="-webkit-line-clamp:2">Afternoon</span></h3>
+                                            <div data-testid="SegmentHighTemp" class="Column--temp--2v_go"><span
+                                                    data-testid="TemperatureValue"><?php ($forcast_list[1]->main->temp - 273) . " &#8451;" ?></span>
+                                            </div>
+                                            <div class="Column--icon--1fMZT ">
+                                                <svg set="weather" skycode="28"
+                                                    theme="full" data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 0 200 200">
+                                                    <title>Mostly Cloudy</title>
+                                                    <use xlink:href="#svg-symbol-sun"
+                                                        transform="matrix(.56 0 0 .56 0 34)"
+                                                        mask="url(#mostly-cloudy-mask)"></use>
+                                                    <use xlink:href="#svg-symbol-cloud-junior"
+                                                        transform="matrix(1 0 0 1 2 62)"></use>
+                                                    <use xlink:href="#svg-symbol-cloud"
+                                                        transform="matrix(.9 0 0 .9 0 34)"></use>
+                                                </svg>
+                                                <div
+                                                    style="background-image: url('http://openweathermap.org/img/w/<?php echo $forcast_list[3]->weather[0]->icon ?>.png') no-repeat;"></div>
+                                            </div>
+                                            <div data-testid="SegmentPrecipPercentage" class="Column--precip--2H5Iw">
+                                                <span class="Column--precip--2H5Iw"><?php echo ($forcast_list[3]->main->temp - 273) ?></span>
+                                            </div>
+                                        </a></li>
+                                    <li class="
+                            Column--column--2bRa6
+                            Column--active--FeXwd
+                        "><a class="Column--innerWrapper--3K14X  Button--default--2yeqQ"
+                            href="#"
+                            target="_self">
+                                            <h3 class="Column--label--L3RrD Column--small--3Qnmn"><span
+                                                    class="Ellipsis--ellipsis--lfjoB"
+                                                    style="-webkit-line-clamp:2">Evening</span></h3>
+                                            <div data-testid="SegmentHighTemp" class="Column--temp--2v_go"><span
+                                                    data-testid="TemperatureValue" style=" font-size: 15px; " ><?php ($forcast_list[2]->main->temp - 273) . " &#8451;" ?></span>
+                                            </div>
+                                            <div class="Column--icon--1fMZT ">
+                                                <svg set="weather" skycode="27"
+                                                    theme="full" data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 0 200 200">
+                                                    <title>Mostly Cloudy Night</title>
+                                                    <use xlink:href="#svg-symbol-cloud-junior"
+                                                        transform="translate(0 28)"></use>
+                                                    <use xlink:href="#svg-symbol-moon"
+                                                        transform="matrix(1.56 0 0 1.56 -43.68 26.52)"
+                                                        mask="url(#mostly-cloudy-night-mask)"></use>
+                                                    <use xlink:href="#svg-symbol-cloud"
+                                                        transform="matrix(.86 0 0 .86 6.88 3.44)"></use>
+                                                </svg>
+                                                <div
+                                                    style="background-image: url('http://openweathermap.org/img/w/<?php echo $forcast_list[2]->weather[0]->icon ?>.png') no-repeat;"></div>
+                                            </div>
+                                            <div data-testid="SegmentPrecipPercentage" class="Column--precip--2H5Iw">
+                                                <svg set="heads-up" name="precip-rain-single" theme="full"
+                                                    data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 -2 5 10">
+                                                    <title>Rain</title>
+                                                    <path
+                                                        d="M4.7329.0217c-.1848-.059-.3855.0064-.4803.148L.2731 5.1191c-.0814.0922-.1501.1961-.196.3108-.2469.6009.1185 1.2697.8156 1.4943.6914.226 1.447-.0712 1.7-.6585L4.9662.4987l.0111-.0282c.073-.1807-.036-.379-.2444-.4488z">
+                                                    </path>
+                                                </svg>
+                                                <span class="Column--precip--2H5Iw"><span
+                                                        class="Accessibility--visuallyHidden--1432w">Chance of rain</span>2%</span>
+                                            </div>
+                                        </a></li>
+                                    <li class="
+                            Column--column--2bRa6
+                        "><a class="Column--innerWrapper--3K14X  Button--default--2yeqQ"
+                            href="#"
+                            target="_self">
+                                            <h3 class="Column--label--L3RrD Column--small--3Qnmn"><span
+                                                    class="Ellipsis--ellipsis--lfjoB"
+                                                    style="-webkit-line-clamp:2">Night</span></h3>
+                                            <div data-testid="SegmentHighTemp" class="Column--temp--2v_go"><span
+                                                    data-testid="TemperatureValue"><?php ($forcast_list[3]->main->temp - 273) . " &#8451;" ?></span>
+                                            </div>
+                                            <div class="Column--icon--1fMZT ">
+                                                <svg set="weather" skycode="27"
+                                                    theme="full" data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 0 200 200">
+                                                    <title>Mostly Cloudy Night</title>
+                                                    <use xlink:href="#svg-symbol-cloud-junior"
+                                                        transform="translate(0 28)"></use>
+                                                    <use xlink:href="#svg-symbol-moon"
+                                                        transform="matrix(1.56 0 0 1.56 -43.68 26.52)"
+                                                        mask="url(#mostly-cloudy-night-mask)"></use>
+                                                    <use xlink:href="#svg-symbol-cloud"
+                                                        transform="matrix(.86 0 0 .86 6.88 3.44)"></use>
+                                                </svg>
+                                                <div
+                                                    style="background-image: url('http://openweathermap.org/img/w/<?php echo $forcast_list[3]->weather[0]->icon ?>.png') no-repeat;"></div>
+                                            </div>
+                                            <div data-testid="SegmentPrecipPercentage" class="Column--precip--2H5Iw">
+                                                <svg set="heads-up" name="precip-rain-single" theme="full"
+                                                    data-testid="Icon" aria-hidden="true" role="img"
+                                                    class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                    viewBox="0 -2 5 10">
+                                                    <title>Rain</title>
+                                                    <path
+                                                        d="M4.7329.0217c-.1848-.059-.3855.0064-.4803.148L.2731 5.1191c-.0814.0922-.1501.1961-.196.3108-.2469.6009.1185 1.2697.8156 1.4943.6914.226 1.447-.0712 1.7-.6585L4.9662.4987l.0111-.0282c.073-.1807-.036-.379-.2444-.4488z">
+                                                    </path>
+                                                </svg>
+                                                <span class="Column--precip--2H5Iw"><span
+                                                        class="Accessibility--visuallyHidden--1432w">Chance of rain</span>6%</span>
+                                            </div>
+                                        </a></li>
+                                </ul>
+                            </div>
+                            <footer data-testid="CardFooter" class="Card--cardFooter--3JEN_"></footer>
+                        </section>
+                    </div>
+                    <div id="todayDetails" class=" removeIfEmpty">
+                        <section class="card Card--card--4VS_Q" data-testid="TodaysDetailsModule"
+                                title="Thời tiết hôm nay tại Hanoi" aria-label="Thời tiết hôm nay tại Hanoi">
+                            <header data-testid="HeaderTitle" class="Card--cardHeader--3A3B1">
+                                <h2 class="Card--cardHeading--3et4e">Today's details in <?php echo $location ?>i</h2>
+                            </header>
+                            <div data-testid="TodaysDetailsHeader" class="TodayDetailsCard--hero--HySn3">
+                                <div data-testid="FeelsLikeSection" class="TodayDetailsCard--feelsLikeTemp--2GFqN"><span
+                                        data-testid="TemperatureValue"
+                                        class="TodayDetailsCard--feelsLikeTempValue--2aogo"> <?php echo $temp . " &#8451;" ?></span><span
+                                        data-testid="FeelsLikeLabel"
+                                        class="TodayDetailsCard--feelsLikeTempLabel--1i4BV"><?php echo $description ?></span>
+                                </div>
+                                <div id="SunriseSunsetContainer-fd88de85-7aa1-455f-832a-eacb037c140a">
+                                    <div>
+                                        <div data-testid="sunriseSunsetContainer"
+                                            class="SunriseSunset--sunriseSunsetContainer--LPkkp">
+                                            <svg
+                                                data-testid="SunriseSunsetGraph" class="SunriseSunset--graph--1Rgw1"
+                                                width="107" height="67">
+                                                <path d="M -13.5 26.5 a 1 1 0 0 0 80 0"
+                                                    class="SunriseSunset--graphPath--2rk2J"
+                                                    style="transform-origin: 40px 40px;"></path>
+                                            </svg>
+                                            <div class="SunriseSunset--datesContainer--3YG_Q">
+                                                <div data-testid="SunriseValue"
+                                                    class="SunriseSunset--sunriseDateItem--2ATeV">
+                                                    <svg
+                                                        class="Icon--icon--2AbGu SunriseSunset--sunIcon--2R1uu"
+                                                        set="current-conditions" name="sunrise-line" theme=""
+                                                        data-testid="Icon" aria-hidden="true" role="img"
+                                                        viewBox="0 0 24 24">
+                                                        <title>Sun Rise</title>
+                                                        <path
+                                                            d="M10.862 6.052v5.329a.75.75 0 0 0 1.5 0V6.036l1.772 1.534a.75.75 0 0 0 .982-1.134l-3.003-2.601a.75.75 0 0 0-.982 0L8.128 6.436A.75.75 0 0 0 9.11 7.57l1.752-1.518zM21 19.128a.75.75 0 0 0 0-1.5H3.167a.75.75 0 1 0 0 1.5H21z">
+                                                        </path>
+                                                    </svg>
+                                                    <p class="SunriseSunset--dateValue--2nwgx"><?php echo date("H:i:s", $result->sys["sunrise"]); ?></p>
+                                                </div>
+                                                <div data-testid="SunsetValue"
+                                                    class="SunriseSunset--sunsetDateItem--2_gJb SunriseSunset--sunriseDateItem--2ATeV">
+                                                    <svg class="Icon--icon--2AbGu SunriseSunset--sunIcon--2R1uu"
+                                                        set="current-conditions" name="sunset-line" theme=""
+                                                        data-testid="Icon" aria-hidden="true" role="img"
+                                                        viewBox="0 0 24 24">
+                                                        <title>Sunset</title>
+                                                        <path
+                                                            d="M10.862 9.853L9.044 8.278a.75.75 0 1 0-.982 1.134l3.003 2.602a.75.75 0 0 0 .982 0l3.004-2.602a.75.75 0 0 0-.983-1.134l-1.706 1.478V4a.75.75 0 0 0-1.5 0v5.853zM21 19.075a.75.75 0 1 0 0-1.5H3.167a.75.75 0 1 0 0 1.5H21z">
+                                                        </path>
+                                                    </svg>
+                                                    <p class="SunriseSunset--dateValue--2nwgx"> <?php echo date("H:i:s", $result->sys["sunset"]); ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="TodayDetailsCard--detailsContainer--1tqay">
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="temp" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                        <title>Temperature</title>
+                                        <path
+                                            d="M10.333 15.48v.321c.971.357 1.667 1.322 1.667 2.456 0 1.438-1.12 2.604-2.5 2.604S7 19.695 7 18.257c0-1.134.696-2.099 1.667-2.456v-.322a2.084 2.084 0 0 1-1.25-1.91V5.583a2.083 2.083 0 1 1 4.166 0v7.986c0 .855-.514 1.589-1.25 1.91zM15.8 8.1a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6zm0-1.85a1 1 0 1 0 0-2 1 1 0 0 0 0 2z">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        Max/Min
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="TemperatureValue"> <?php echo $temp_max . " &#8451;" ?></span>/<span
+                                            data-testid="TemperatureValue"> <?php echo $temp_min . " &#8451;" ?></span>
+                                    </div>
+                                </div>
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="wind" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                        <title>Wind</title>
+                                        <path
+                                            d="M6 8.67h5.354c1.457 0 2.234-1.158 2.234-2.222S12.687 4.4 11.354 4.4c-.564 0-1.023.208-1.366.488M3 11.67h15.54c1.457 0 2.235-1.158 2.235-2.222S19.873 7.4 18.54 7.4c-.747 0-1.311.365-1.663.78M6 15.4h9.389c1.457 0 2.234 1.159 2.234 2.223 0 1.064-.901 2.048-2.234 2.048a2.153 2.153 0 0 1-1.63-.742"
+                                            stroke-width="2" stroke="currentColor" stroke-linecap="round" fill="none">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        Wind
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="Wind" class="Wind--windWrapper--1Va1P undefined"><svg
+                                                data-testid="Icon" class="Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                                style="transform:rotate(90deg)" set="current-conditions"
+                                                name="wind-direction" theme="dark" aria-hidden="true" role="img"
+                                                viewBox="0 0 24 24">
+                                                    <title>Wind Direction</title>
+                                                    <path stroke="currentColor" fill="none"
+                                                        d="M18.467 4.482l-5.738 5.738a1.005 1.005 0 0 1-1.417 0L5.575 4.482l6.446 16.44 6.446-16.44z">
+                                                    </path>
+                                                </svg>  <?php echo $result->wind["speed"] . " meter/sec" ?></span></div>
+                                </div>
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="humidity" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                        <title>Humidity</title>
+                                        <path fill-rule="evenodd"
+                                            d="M11.743 17.912a4.182 4.182 0 0 1-2.928-1.182 3.972 3.972 0 0 1-.614-4.962.743.743 0 0 1 .646-.349c.234 0 .476.095.66.275l4.467 4.355c.385.376.39.998-.076 1.275a4.216 4.216 0 0 1-2.155.588M11.855 4c.316 0 .61.14.828.395.171.2.36.416.562.647 1.857 2.126 4.965 5.684 4.965 8.73 0 3.416-2.85 6.195-6.353 6.195-3.505 0-6.357-2.78-6.357-6.195 0-3.082 2.921-6.406 4.854-8.605.242-.275.47-.535.673-.772A1.08 1.08 0 0 1 11.855 4">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        Humidity
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="PercentageValue"> <?php echo $umid . "%" ?></span></div>
+                                </div>
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="pressure" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                        <title>Pressure</title>
+                                        <path
+                                            d="M8.462 18.293l-.29-.002c-.6-.004-1.043-.007-1.259-.007-1.119 0-1.182-1.015-.34-1.734l.196-.164.508-.425 1.543-1.292c1.014-.846 1.74-1.45 2.073-1.723.735-.601 1.305-.596 2.033.022.387.329.959.805 2.207 1.841a377.936 377.936 0 0 1 2.18 1.816c.796.67.742 1.66-.295 1.66h-2.382v1.77c0 .83-.393 1.223-1.258 1.223h-2.994c-.809 0-1.258-.42-1.258-1.207v-1.773l-.664-.005zm0-12.807l-.29.002c-.6.004-1.043.006-1.259.006-1.119 0-1.182 1.016-.34 1.734l.196.164.508.426 1.543 1.29a348.68 348.68 0 0 0 2.073 1.724c.735.601 1.305.596 2.033-.022.387-.328.959-.805 2.207-1.84a377.937 377.937 0 0 0 2.18-1.817c.796-.67.742-1.659-.295-1.659h-2.382v-1.77c0-.832-.393-1.224-1.258-1.224h-2.994c-.809 0-1.258.42-1.258 1.207V5.48l-.664.005z">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        Pressure
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="PressureValue"
+                                            class="Pressure--pressureWrapper--3olKd undefined"> <?php echo $pressure . "hPa" ?></span>
+                                    </div>
+                                </div>
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="uv" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                        <title>UV Level</title>
+                                        <path
+                                            d="M7.4 5.598a.784.784 0 0 1 .25-.92c.335-.256.824-.197 1.02.062.066.063.066.063.08.085l2.406 3.152-.626.238a3.983 3.983 0 0 0-1.097.633l-.522.424L7.4 5.598zm4.539 2.358c-.21 0-.418.017-.625.05l-.664.106.09-.666.438-3.266c.013-.072.013-.072.012-.057a.783.783 0 0 1 .666-.616.78.78 0 0 1 .872.639l.006.038.507 3.933-.662-.108a3.957 3.957 0 0 0-.64-.053zm-7.781 3.19l.026-.004 3.934-.507-.108.662a3.98 3.98 0 0 0-.003 1.266l.105.664-.665-.09-3.265-.439a.784.784 0 0 1-.676-.679c-.054-.42.238-.809.63-.869l.022-.004zm11.504-.617a3.98 3.98 0 0 0-.632-1.097l-.425-.522.623-.256 3.056-1.256a.787.787 0 0 1 .916.253c.256.337.199.817-.104 1.063l-.045.037-3.151 2.405-.238-.627zm-1.205-1.672a3.984 3.984 0 0 0-1.095-.637l-.626-.24.41-.532 2.008-2.602c.059-.07.059-.07.046-.052a.78.78 0 0 1 1.306.227c.076.185.079.39.02.54l-.021.06-1.528 3.662-.52-.426zM4.595 7.793c.162-.387.611-.58.971-.441.017.004.017.004.055.02L9.283 8.9l-.425.52a3.985 3.985 0 0 0-.636 1.094l-.24.627-3.144-2.425a.784.784 0 0 1-.243-.924zm14.443 7.367c.054.045.054.045.044.04a.784.784 0 0 1 .199.884c-.163.386-.61.58-.964.443-.024-.006-.024-.006-.062-.022l-3.662-1.529.426-.52a3.98 3.98 0 0 0 .636-1.094l.241-.626 3.142 2.424zm1.332-3.303c.053.422-.239.809-.63.87l-.035.006-3.945.508.108-.662a3.999 3.999 0 0 0 .003-1.266l-.105-.663.665.09 3.272.44c.068.012.068.012.052.01a.784.784 0 0 1 .615.667zm-3.894 6.421c.024.068.024.068.017.053a.786.786 0 0 1-.27.87c-.332.25-.816.194-1.047-.091-.022-.023-.022-.023-.05-.058l-2.406-3.154.626-.237a3.977 3.977 0 0 0 1.097-.632l.523-.425 1.51 3.674zm-8.26-4.932c.151.397.365.767.633 1.097l.424.522-.622.256-3.054 1.255a.787.787 0 0 1-.92-.25.781.781 0 0 1-.154-.58c.027-.199.127-.379.227-.452.045-.046.045-.046.075-.069l3.153-2.406.238.627zm3.723 2.572c.209 0 .417-.016.625-.049l.662-.103-.089.664-.438 3.26-.012.062a.785.785 0 0 1-.666.618c-.048.005-.048.005-.101.006-.386 0-.714-.28-.764-.612-.01-.043-.01-.043-.014-.072l-.507-3.934.662.108c.213.035.427.052.642.052zM7.366 18.27l.006-.015L8.9 14.592l.52.426a3.99 3.99 0 0 0 1.094.636l.626.241-.41.531-2.012 2.609-.04.046a.788.788 0 0 1-.886.2.787.787 0 0 1-.428-1.011z">
+                                        </path>
+                                        <path
+                                            d="M11.911 14.322a2.411 2.411 0 1 0 0-4.822 2.411 2.411 0 0 0 0 4.822zm0 2a4.411 4.411 0 1 1 0-8.822 4.411 4.411 0 0 1 0 8.822z">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        Chỉ số UV
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="UVIndexValue">2 / 10</span></div>
+                                </div>
+                                <div class="ListItem--listItem--1r7mf WeatherDetailsListItem--WeatherDetailsListItem--3w7Gx"
+                                    data-testid="WeatherDetailsListItem">
+                                    <svg
+                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                        set="current-conditions" name="visibility" theme="dark" data-testid="Icon"
+                                        aria-hidden="true" role="img" width="1024" height="1024"
+                                        viewBox="0 0 1024 1024">
+                                        <title>Visibility</title>
+                                        <path
+                                            d="M491.856 879.808c-60.48-5.056-110.848-25.184-171.328-55.424-120.96-55.424-216.704-146.112-292.256-256.96-25.248-40.352-30.24-80.64 0-126.016 80.608-115.872 186.464-211.68 317.472-272.096 110.816-50.4 226.752-50.4 337.664 0 136 60.48 241.824 156.224 317.44 282.208 15.104 25.216 25.12 65.504 10.048 85.728-105.792 191.424-256.992 367.84-519.04 342.56zm292.256-377.92c0-151.168-120.96-272.064-272.096-272.064-146.144 0-272.128 126.016-272.128 272.064 0 151.232 120.96 277.216 272.128 277.216 151.104-.032 272.096-125.984 272.096-277.216z">
+                                        </path>
+                                        <path
+                                            d="M789.808 500.416c0 156.896-125.472 287.52-282.336 282.336-156.864 0-282.336-130.656-282.336-287.488 0-146.4 130.656-277.12 282.336-277.12 156.896-.032 287.584 125.376 282.336 282.272zM512.752 348.832c-83.68 0-151.584 67.968-151.584 151.584 0 88.864 67.968 156.896 151.584 156.896 83.648 0 156.832-73.216 156.832-156.896-5.184-83.648-73.152-151.584-156.832-151.584z">
+                                        </path>
+                                    </svg>
+                                    <div data-testid="WeatherDetailsLabel" class="WeatherDetailsListItem--label--3JSSI">
+                                        vision
+                                    </div>
+                                    <div data-testid="wxData" class="WeatherDetailsListItem--wxData--23DP5"><span
+                                            data-testid="VisibilityValue">9.66 km</span></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="WxuDailyWeatherCard-main-bb1a17e7-dc20-421a-b1b8-c117308c6626" class=" removeIfEmpty">
+                        <section class="card Card--card--4VS_Q" data-testid="DailyWeatherModule"
+                                title="Dự báo hàng ngày" ctatext="10 ngày tới"
+                                ctaurl="/vi-VN/weather/tenday/l/65bbbcbef8448c1f971408c74ed922af1bed94ddd8cc7a48d2bae40e75cef726#detailIndex5"
+                                aria-label="Dự báo hàng ngày">
+                            <header data-testid="HeaderTitle" class="Card--cardHeader--3A3B1">
+                                <h2 class="Card--cardHeading--3et4e">Daily forecast</h2>
+                            </header>
+                            <div class="DailyWeatherCard--TableWrapper--12r1N">
+                                <ul class="WeatherTable--columns--3q5Nx" data-testid="WeatherTable">
+
+                                    <?php
+                                    for ($i = 4; $i < sizeof($forcast_list); $i = $i + 4) {
+                                        $temp = $forcast_list[$i]
+                                        ?>
+                                        <li class="Column--column--2bRa6">
+                                            <a class="Column--innerWrapper--3K14X  Button--default--2yeqQ"
+                                            href="#"
+                                            target="_self">
+                                                <h3 class="Column--label--L3RrD Column--small--3Qnmn"><span
+                                                        class="Ellipsis--ellipsis--lfjoB"
+                                                        style="-webkit-line-clamp:2"><?php echo date("d/m ", $temp->dt) ?></span>
+                                                </h3>
+                                                <div data-testid="SegmentHighTemp" class="Column--temp--2v_go"><span
+                                                        data-testid="TemperatureValue"> <?php echo ($temp->main->temp-273) . " &#8451;" ?></span>
+                                                </div>
+                                                <div data-testid="SegmentLowTemp" class="Column--tempLo--19O32"><span
+                                                        data-testid="TemperatureValue"></span></div>
+                                                <div class="Column--icon--1fMZT Column--small--3Qnmn">
+                                                    <svg set="weather"
+                                                        skycode="28" theme="full" data-testid="Icon" aria-hidden="true"
+                                                        role="img" class="Icon--icon--2AbGu Icon--fullTheme--3jU2v"
+                                                        viewBox="0 0 200 200">
+                                                        <title>Mostly Cloudy</title>
+                                                        <use xlink:href="#svg-symbol-sun"
+                                                            transform="matrix(.56 0 0 .56 0 34)"
+                                                            mask="url(#mostly-cloudy-mask)"></use>
+                                                        <use xlink:href="#svg-symbol-cloud-junior"
+                                                            transform="matrix(1 0 0 1 2 62)"></use>
+                                                        <use xlink:href="#svg-symbol-cloud"
+                                                            transform="matrix(.9 0 0 .9 0 34)"></use>
+                                                    </svg>
+                                                    <div class="col-md-12"
+                                                        style="background-image: url('http://openweathermap.org/img/w/<?php echo $temp->weather[0]->icon ?>.png') no-repeat;"></div>
+                                                </div>
+                                                <div data-testid="SegmentPrecipPercentage" class="Column--precip--2H5Iw">
+                                                    <svg
+                                                        class="WeatherDetailsListItem--icon--NgMGn Icon--icon--2AbGu Icon--darkTheme--2U1o8"
+                                                        set="current-conditions" name="humidity" theme="dark"
+                                                        data-testid="Icon"
+                                                        aria-hidden="true" role="img" viewBox="0 0 24 24">
+                                                        <title>Humidity</title>
+                                                        <path fill-rule="evenodd"
+                                                            d="M11.743 17.912a4.182 4.182 0 0 1-2.928-1.182 3.972 3.972 0 0 1-.614-4.962.743.743 0 0 1 .646-.349c.234 0 .476.095.66.275l4.467 4.355c.385.376.39.998-.076 1.275a4.216 4.216 0 0 1-2.155.588M11.855 4c.316 0 .61.14.828.395.171.2.36.416.562.647 1.857 2.126 4.965 5.684 4.965 8.73 0 3.416-2.85 6.195-6.353 6.195-3.505 0-6.357-2.78-6.357-6.195 0-3.082 2.921-6.406 4.854-8.605.242-.275.47-.535.673-.772A1.08 1.08 0 0 1 11.855 4">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="Column--precip--2H5Iw"><span
+                                                            class="Accessibility--visuallyHidden--1432w"> <?php echo $temp->main->humidity . "%" ?></span>
+                                                </div>
+                                            </a></li>
+                                    <?php }
+                                    ?>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+        </main>
+    </div>
+</div>
