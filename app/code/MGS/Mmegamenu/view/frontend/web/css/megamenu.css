@@ -1,4 +1,0 @@
-@media (max-width: 991px) {
-	.category-menu .dropdown-menu.active .sub-menu .sub-menu{display:none}
-	.mega-menu-item a.active .fa-plus:before {content: "\f068";}
-}
